@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 6</title>
+</head>
+ 
+<body>
+
+<h2>Painter Entry Avery Schreiner</h2>
+
+<form>
+    <label for="painter">The hidden painter name</label>
+    <input type ="password" id="painter" value='Monet'> <br>
+
+    <label for="guess">Guess the painter</label>
+    <input type ="text" id="guess"> 
+    <br>
+
+    <input type="button" onclick=checkPainter() value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced</p>
+
+<script> 
+    let good = oops = 0
+
+    function checkPainter() {
+        guessThis = document.getElementById('painter').value 
+        guess = document.getElementById('guess').value
+
+        if (guessThis === guess) {
+            good += 1
+            alert('You got it right!')
+            document.getElementById('result').innerHTML = good
+
+        }
+        else {
+            oops += 1
+            alert('Sorry')
+            document.getElementById('result').innerHTML = oops
+
+        }
+}
+</script>
+
+</body>
+</html> 
