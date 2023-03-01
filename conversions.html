@@ -19,6 +19,19 @@
 
     <p id="result">This text will be replaced </p>
 
+    <form>
+        <label>Average</label>
+        <input name='yes' id='mean' type="radio" class="radio" onclick="chooseOp()" value="mean">
+        <label>Max</label>
+        <input name='yes' id='max' type="radio" class="radio" onclick="chooseOp()" value="maximum">
+        <label>Min</label>
+        <input name='yes' id='min' type="radio" class="radio" onclick="chooseOp()" value="minimum">
+        <label>Range</label>
+        <input name='yes' id='range' type="radio" class="radio" onclick="chooseOp()" value="range">
+    </form>
+
+    <div id="result1"></div>
+
     <script> 
 
     function convert() {
@@ -31,6 +44,30 @@
         }
 
         document.getElementById('result').innerHTML = 'Conversions are: ' + toShow
+    }
+
+    function chooseOp() {
+        let amount = document.getElementById('amount').value  
+        let rate = document.getElementById('rate').value  
+
+        let mean = document.getElementById('mean').checked
+        let max = document.getElementById('max').checked
+        let min = document.getElementById('min').checked
+        let range = document.getElementById('range').checked
+        document.getElementById('result1').innerHTML = ''
+
+        if (mean) {
+            document.getElementById('result1').innerHTML = 'mean of ' + amount + ' and ' + rate + ' is ' + (Number(amount)+Number(rate))/2
+        }
+        else if (max) {
+            document.getElementById('result1').innerHTML = 'max of ' + amount + ' and ' + rate + ' is ' + Math.max(amount, rate)
+        }
+        else if (min) {
+            document.getElementById('result1').innerHTML = 'min of ' + amount + ' and ' + rate + ' is ' + Math.min(amount, rate)
+        }
+        else if (range) {
+            document.getElementById('result1').innerHTML = 'range of ' + amount + ' and ' + rate + ' is ' + Math.abs(amount-rate)
+        }
     }
     </script>
 
