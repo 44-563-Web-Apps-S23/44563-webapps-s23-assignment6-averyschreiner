@@ -23,6 +23,14 @@
 
 <div id="result"></div>
 
+<form>
+    <label>Enter the size</label>
+    <input id='size' type="text" value="size"> <br>
+    <label>Enter the pricce</label>
+    <input id='price' type="text" value="price"> <br>
+    <button onclick="updateBox()">Update the box</button>
+</form>
+
 <script> 
     let my_candy_box = {}
 
@@ -32,6 +40,12 @@
         my_candy_box.dark = document.getElementById('dchoco').value
         my_candy_box.nuts = document.getElementById('nuts').value
         my_candy_box.chewy = document.getElementById('chewy').value
+        document.getElementById('result').innerHTML = my_candy_box
+    }
+
+    function updateBox() {
+        my_candy_box['size'] = document.getElementById('size').value
+        my_candy_box['price'] = document.getElementById('price').value
         document.getElementById('result').innerHTML = my_candy_box
     }
 </script>
