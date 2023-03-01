@@ -22,7 +22,12 @@
 
 <p id="result">This text will be replaced</p>
 
+<div class="container">
+    <img id="ourImage" src="salvia.jpg" style="width: 100px; height: 100px;" onclick="selectImage()">
+</div>
+
 <script> 
+    let useImage = 1
     let good = oops = 0
 
     function checkPainter() {
@@ -41,7 +46,25 @@
             document.getElementById('result').innerHTML = oops
 
         }
-}
+    }
+
+    function selectImage() {
+        useImage += 1
+        let imgEle = document.getElementById("ourImage")
+        let newSrc = ''
+
+        if (useImage % 3 == 1) {
+            newSrc = 'salvia.jpg'
+        }
+        else if (useImage % 3 == 2) {
+            newSrc = 'hedychium.webp'
+        }
+        else {
+            newSrc = 'calothamnus.jpg'
+        }
+
+        imgEle.src = newSrc
+    }
 </script>
 
 </body>
